@@ -28,6 +28,10 @@ public class UtilizationImpl implements Utilization {
 	Date _endDate = DEFAULT_END_DATE;
 	double _util = ZERO_UTILIZATION;
 
+	protected final Long DEFAULT_EMPLOYEE_ID = 1000L;
+	protected final String DEFAULT_LAST_NAME = "Doe";
+	protected final String DEFAULT_FIRST_NAME = "John";
+	
 	@Override
 	public double getUtilization() {
 		return _creditedHours / _capacityHours;
