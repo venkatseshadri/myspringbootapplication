@@ -1,5 +1,8 @@
 package org.venkattest.service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.venkattest.data.EmployeeDTO;
@@ -16,8 +19,13 @@ public class EmployeeService {
 		return DTO2o(this.EmployeeRepository.findById(id).get());
 	}
 	
+	public List<Employee> getAllEmployees() {
+		List<Employee> eList = new ArrayList<Employee>();
+		this.EmployeeRepository.findAll().forEach(emp -> eList.add(DTO2o(emp)) );
+		return eList;
+	}
+	
 	public void insertEmployee(Employee e) {
-
 		this.EmployeeRepository.save(o2DTO(e));
 	}
 	
